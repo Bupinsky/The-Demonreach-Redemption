@@ -10,6 +10,7 @@ public class ProjectileLauncher : MonoBehaviour
     public List<GameObject> bullets;
     public int numBullets;
     PlayerScript playerScript;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,11 +43,20 @@ public class ProjectileLauncher : MonoBehaviour
         // get the normalized one:
         Vector3 launchNorm = launchDir.normalized;
 
-        //controls
-        if (Input.GetMouseButtonDown(0))
+        // hide the arrow if the player is not aiming
+        if (Input.GetMouseButton(0) && playerScript.cooldown == false && numBullets > 0 && (bullets.Count == 0 || bullets[0] == null))
         {
-            // only shoot if the player has bullets and is on the ground
-            if (numBullets > 0 && playerScript.isGrounded)
+            arrow.SetActive(true);
+        } else
+        {
+            arrow.SetActive(false);
+        }
+
+        //controls
+        if (Input.GetMouseButtonUp(0) && playerScript.cooldown == false)
+        {
+            // only shoot if the player has bullets & there are no bullets in play
+            if (numBullets > 0 && (bullets.Count == 0 || bullets[0] == null))
             {
                 //add bullets to the list of bullets, this will make them easy to manage.
                 bullets.Add(Instantiate(bulletBlueprint, new Vector3(this.transform.position.x + launchNorm.x, this.transform.position.y + launchNorm.y, 0), Quaternion.identity));
@@ -55,6 +65,12 @@ public class ProjectileLauncher : MonoBehaviour
                 
                 numBullets -= 1;
             }
+        }
+
+        // the mouse is not clicked, so its safe to assume the next time the player clicks, they want to fire a bullet
+        if (!Input.GetMouseButton(0))
+        {
+            playerScript.cooldown = false;
         }
     }
 

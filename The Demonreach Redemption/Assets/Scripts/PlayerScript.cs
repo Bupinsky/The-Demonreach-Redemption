@@ -6,6 +6,9 @@ public class PlayerScript : MonoBehaviour
 {
     public bool isGrounded;
     public bool infiniteFlight;
+    // a cooldown after a teleport to prevent the release of the teleport click from firing another bullet
+    public bool cooldown;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +21,14 @@ public class PlayerScript : MonoBehaviour
         {
             Destroy(gameObject);
             //Debug.Log("bullet destroyed");
+        }
+        // controls for walking
+        if (Input.GetKeyDown("a"))
+        {
+            // move right
+        } else if (Input.GetKeyDown("d"))
+        {
+            // move left
         }
     }
 

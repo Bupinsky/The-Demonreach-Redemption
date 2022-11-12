@@ -5,6 +5,7 @@ using UnityEngine;
 public class BulletScript : MonoBehaviour
 {
     GameObject player;
+    PlayerScript playerScript;
     public Vector2 velocity;
     public int speed;
     float x;
@@ -13,6 +14,7 @@ public class BulletScript : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player");
+        playerScript = player.GetComponent<PlayerScript>();
     }
 
     // Update is called once per frame
@@ -26,6 +28,20 @@ public class BulletScript : MonoBehaviour
         // rotating the bullet ( this doesnt work rn cuz the unity gravity does not correspond to this script's velocity )
         Vector2 unitVec = new Vector2(0, 1);
         transform.rotation = Quaternion.Euler(0, 0, Vector2.SignedAngle(unitVec, velocity));
+
+
+        // double click for teleportation
+        if (Input.GetMouseButtonDown(0))
+        {
+            // cooldown makes sure this click does not simultaniously start another launch
+            playerScript.cooldown = true;
+            Vector3 newPosition = this.transform.position;
+            //raising height by 1 so the player doesnt spawn inside the platform
+            newPosition.y += 1;
+            player.transform.position = newPosition;
+            Destroy(gameObject);
+        }
+
 
         // destroy out of bounds bullets
         if (!isInBounds())
