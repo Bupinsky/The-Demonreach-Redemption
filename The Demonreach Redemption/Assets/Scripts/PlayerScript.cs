@@ -8,10 +8,14 @@ public class PlayerScript : MonoBehaviour
     public bool infiniteFlight;
     // a cooldown after a teleport to prevent the release of the teleport click from firing another bullet
     public bool cooldown;
+    public float speed;
+
+    private Rigidbody2D rigidbody;
 
     // Start is called before the first frame update
     void Start()
     {
+        rigidbody = GetComponentInChildren<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -23,12 +27,20 @@ public class PlayerScript : MonoBehaviour
             //Debug.Log("bullet destroyed");
         }
         // controls for walking
-        if (Input.GetKeyDown("a"))
+        if (isGrounded)
         {
-            // move right
-        } else if (Input.GetKeyDown("d"))
-        {
-            // move left
+            if (Input.GetKey("a"))
+            {
+                // move left
+                Vector3 tempVector = new Vector3(-speed * Time.deltaTime, 0, 0);
+                this.transform.position += tempVector;
+            }
+            else if (Input.GetKey("d"))
+            {
+                // move right
+                Vector3 tempVector = new Vector3(speed * Time.deltaTime, 0, 0);
+                this.transform.position += tempVector;
+            }
         }
     }
 

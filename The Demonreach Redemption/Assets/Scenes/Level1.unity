@@ -606,6 +606,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2621735397876287132, guid: 6ed0ab1ba9d2649409c994072b7cd468,
+        type: 3}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3092460349593259995, guid: 6ed0ab1ba9d2649409c994072b7cd468,
         type: 3}
       propertyPath: numBullets
