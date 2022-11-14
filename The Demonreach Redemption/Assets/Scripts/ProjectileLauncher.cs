@@ -9,23 +9,34 @@ public class ProjectileLauncher : MonoBehaviour
     public GameObject bulletBlueprint;
     public List<GameObject> bullets;
     PlayerScript playerScript;
+    Vector3 recentClickLocation;
 
     // Start is called before the first frame update
     void Start()
     {
         playerScript = player.GetComponent<PlayerScript>();
+        // set the recent click to something arbitrary
+        recentClickLocation = this.gameObject.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
+        // the instant the mouse is clicked we gotta set the recent click location
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector3 _mousePos = Input.mousePosition;
+            _mousePos.z = Camera.main.nearClipPlane;
+            recentClickLocation = Camera.main.ScreenToWorldPoint(_mousePos);
+        }
+
         // convert mouse position to the relative world position of the mouse
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = Camera.main.nearClipPlane;
         Vector3 mousePosWorld = Camera.main.ScreenToWorldPoint(mousePos);
 
-        //calculate the direction vector for the bullet trajectory
-        Vector3 launchDir = this.gameObject.transform.position - mousePosWorld;
+        //calculate the direction vector for the bullet trajectory by comparing the position when the mouse was pressed down with the current mouse position
+        Vector3 launchDir = recentClickLocation - mousePosWorld;
         launchDir.z = 0;
         launchDir /= 2;
         Vector2 unitVec = new Vector2(0.0f, 1.0f);
