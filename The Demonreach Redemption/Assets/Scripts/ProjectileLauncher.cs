@@ -8,7 +8,6 @@ public class ProjectileLauncher : MonoBehaviour
     public GameObject arrow;
     public GameObject bulletBlueprint;
     public List<GameObject> bullets;
-    public int numBullets;
     PlayerScript playerScript;
 
     // Start is called before the first frame update
@@ -44,7 +43,7 @@ public class ProjectileLauncher : MonoBehaviour
         Vector3 launchNorm = launchDir.normalized;
 
         // hide the arrow if the player is not aiming
-        if (Input.GetMouseButton(0) && playerScript.cooldown == false && numBullets > 0 && (bullets.Count == 0 || bullets[0] == null))
+        if (Input.GetMouseButton(0) && playerScript.cooldown == false && playerScript.numBullets > 0 && (bullets.Count == 0 || bullets[0] == null))
         {
             arrow.SetActive(true);
         } else
@@ -56,14 +55,14 @@ public class ProjectileLauncher : MonoBehaviour
         if (Input.GetMouseButtonUp(0) && playerScript.cooldown == false)
         {
             // only shoot if the player has bullets & there are no bullets in play
-            if (numBullets > 0 && (bullets.Count == 0 || bullets[0] == null))
+            if (playerScript.numBullets > 0 && (bullets.Count == 0 || bullets[0] == null))
             {
                 //add bullets to the list of bullets, this will make them easy to manage.
                 bullets.Add(Instantiate(bulletBlueprint, new Vector3(this.transform.position.x + launchNorm.x, this.transform.position.y + launchNorm.y, 0), Quaternion.identity));
                 bullets[bullets.Count - 1].transform.localScale = new Vector3(1, 1, 1);
                 bullets[bullets.Count - 1].GetComponent<BulletScript>().SetVelocity(launchDir.x, launchDir.y);
-                
-                numBullets -= 1;
+
+                playerScript.numBullets -= 1;
             }
         }
 
@@ -82,6 +81,6 @@ public class ProjectileLauncher : MonoBehaviour
         GUI.skin.box.wordWrap = false;
 
 
-        GUI.Box(new Rect(10, 10, 100, 30), "Shots: " + numBullets);
+        GUI.Box(new Rect(10, 10, 100, 30), "Shots: " + playerScript.numBullets);
     }
 }

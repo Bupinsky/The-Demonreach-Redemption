@@ -5,6 +5,7 @@ using UnityEngine;
 public class BulletScript : MonoBehaviour
 {
     GameObject player;
+    GameObject camera;
     PlayerScript playerScript;
     public Vector2 velocity;
     public int speed;
@@ -14,6 +15,7 @@ public class BulletScript : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player");
+        camera = GameObject.FindWithTag("MainCamera");
         playerScript = player.GetComponent<PlayerScript>();
     }
 
@@ -71,7 +73,7 @@ public class BulletScript : MonoBehaviour
 
     public bool isInBounds()
     {
-        if (Mathf.Abs(x) > 10 || Mathf.Abs(y) > 10) return false;
+        if (Mathf.Abs(camera.transform.position.x - x) > 10 || Mathf.Abs(camera.transform.position.y - y) > 8) return false;
         return true;
     }
 

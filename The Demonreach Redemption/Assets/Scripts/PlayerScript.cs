@@ -6,16 +6,25 @@ public class PlayerScript : MonoBehaviour
 {
     public bool isGrounded;
     public bool infiniteFlight;
+
+    // moved bullet management to the player, to make it more easily accessable in other files
+    public int numBullets;
+    public int maxBullets;
+
     // a cooldown after a teleport to prevent the release of the teleport click from firing another bullet
     public bool cooldown;
     public float speed;
+    public Vector3 spawn;
+    GameObject camera;
 
     private Rigidbody2D rigidbody;
 
     // Start is called before the first frame update
     void Start()
     {
+        camera = GameObject.FindWithTag("MainCamera");
         rigidbody = GetComponentInChildren<Rigidbody2D>();
+        spawn = this.transform.position;
     }
 
     // Update is called once per frame
@@ -23,8 +32,13 @@ public class PlayerScript : MonoBehaviour
     {
         if (!isInBounds() && !infiniteFlight)
         {
-            Destroy(gameObject);
-            //Debug.Log("bullet destroyed");
+            // bring the player and camera back to spawn
+            transform.position = spawn;
+            // temporary vector so the camera stays on the right spot in Z
+            Vector3 tempvec = new Vector3(spawn.x, spawn.y, camera.transform.position.z);
+            camera.transform.position = tempvec;
+            // refill the bullets
+            reload();
         }
         // controls for walking
         if (isGrounded)
@@ -63,7 +77,11 @@ public class PlayerScript : MonoBehaviour
 
     public bool isInBounds()
     {
-        if (Mathf.Abs(transform.position.x) > 10 || Mathf.Abs(transform.position.y) > 10) return false;
+        if (Mathf.Abs(camera.transform.position.x - transform.position.x) > 10 || Mathf.Abs(camera.transform.position.y - transform.position.y) > 8) return false;
         return true;
+    }
+    public void reload()
+    {
+        numBullets = maxBullets;
     }
 }

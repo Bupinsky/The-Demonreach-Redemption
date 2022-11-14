@@ -357,6 +357,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.XR.LegacyInputHelpers.ref.dll"
 "Assets/Scripts/BulletScript.cs"
 "Assets/Scripts/CameraScript.cs"
+"Assets/Scripts/CheckPoint.cs"
 "Assets/Scripts/GameManager.cs"
 "Assets/Scripts/MirrorScript.cs"
 "Assets/Scripts/PlatformScript.cs"

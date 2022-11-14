@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\PlayerScript.cs" />
     <Compile Include="Assets\Scripts\StartButton.cs" />
     <Compile Include="Assets\Scripts\ProjectileLauncher.cs" />
+    <Compile Include="Assets\Scripts\CheckPoint.cs" />
     <Compile Include="Assets\Scripts\BulletScript.cs" />
   </ItemGroup>
   <ItemGroup>
