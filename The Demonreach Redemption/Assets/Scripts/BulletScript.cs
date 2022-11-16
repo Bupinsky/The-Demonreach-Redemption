@@ -22,6 +22,7 @@ public class BulletScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        bool inButton = Pause.inButton;
         // moving the bullet
         x = transform.position.x + Time.deltaTime * velocity.x;
         y = transform.position.y + Time.deltaTime * velocity.y;
@@ -33,7 +34,7 @@ public class BulletScript : MonoBehaviour
 
 
         // double click for teleportation
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !inButton)
         {
             // cooldown makes sure this click does not simultaniously start another launch
             playerScript.cooldown = true;

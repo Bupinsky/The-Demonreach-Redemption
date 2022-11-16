@@ -8,6 +8,7 @@ public class ProjectileLauncher : MonoBehaviour
     public GameObject arrow;
     public GameObject bulletBlueprint;
     public List<GameObject> bullets;
+    public GameObject pauseButton;
     PlayerScript playerScript;
     Vector3 recentClickLocation;
 
@@ -22,8 +23,10 @@ public class ProjectileLauncher : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        bool inButton = Pause.inButton;
+        bool paused = Pause.paused;
         // the instant the mouse is clicked we gotta set the recent click location
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !inButton && !paused)
         {
             Vector3 _mousePos = Input.mousePosition;
             _mousePos.z = Camera.main.nearClipPlane;
@@ -54,7 +57,7 @@ public class ProjectileLauncher : MonoBehaviour
         Vector3 launchNorm = launchDir.normalized;
 
         // hide the arrow if the player is not aiming
-        if (Input.GetMouseButton(0) && playerScript.cooldown == false && playerScript.numBullets > 0 && (bullets.Count == 0 || bullets[0] == null))
+        if (Input.GetMouseButton(0) && !inButton && !paused && playerScript.cooldown == false && playerScript.numBullets > 0 && (bullets.Count == 0 || bullets[0] == null))
         {
             arrow.SetActive(true);
         } else
@@ -63,7 +66,7 @@ public class ProjectileLauncher : MonoBehaviour
         }
 
         //controls
-        if (Input.GetMouseButtonUp(0) && playerScript.cooldown == false)
+        if (Input.GetMouseButtonUp(0) && playerScript.cooldown == false && !inButton && !paused)
         {
             // only shoot if the player has bullets & there are no bullets in play
             if (playerScript.numBullets > 0 && (bullets.Count == 0 || bullets[0] == null))
