@@ -108,6 +108,10 @@ Library\Bee\artifacts\mvdfrm\UnityEngine.VirtualTexturingModule.dll_57D26059DF92
 Library\Bee\artifacts\mvdfrm\UnityEngine.VRModule.dll_3CB00BEA1C6EF4F8.mvfrm
 Library\Bee\artifacts\mvdfrm\UnityEngine.WindModule.dll_7B4109E065E5F514.mvfrm
 Library\Bee\artifacts\mvdfrm\UnityEngine.XRModule.dll_6F6ECEEEA5A94256.mvfrm
-Library\Bee\artifacts\mvdfrm\Unity.Analytics.StandardEvents.dll_62890167267CA6D1.mvfrm
-Library\Bee\artifacts\mvdfrm\Unity.Analytics.Editor.dll_8BD0431E81F2F735.mvfrm
-Library\Bee\artifacts\mvdfrm\Unity.Analytics.Tracker.dll_85F5ADB01F4FB2AC.mvfrm
+Library\Bee\artifacts\mvdfrm\Unity.Android.Gradle.dll_2E221ACA94601568.mvfrm
+Library\Bee\artifacts\mvdfrm\Unity.Android.Types.dll_40CB5BFA9292E954.mvfrm
+Library\Bee\artifacts\mvdfrm\UnityEditor.iOS.Extensions.Common.dll_EAAF9C811E34BD05.mvfrm
+Library\Bee\artifacts\mvdfrm\UnityEditor.iOS.Extensions.Xcode.dll_0C0DFA7F22F77017.mvfrm
+Library\Bee\artifacts\mvdfrm\Unity.Analytics.StandardEvents.dll_53FA03CEEB4566DB.mvfrm
+Library\Bee\artifacts\mvdfrm\Unity.Analytics.Editor.dll_0769DB0E543CA33F.mvfrm
+Library\Bee\artifacts\mvdfrm\Unity.Analytics.Tracker.dll_50C133F265CFF902.mvfrm
