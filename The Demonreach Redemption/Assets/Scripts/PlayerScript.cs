@@ -6,6 +6,7 @@ public class PlayerScript : MonoBehaviour
 {
     public bool isGrounded;
     public bool infiniteFlight;
+    public SpriteRenderer playerSprite;
 
     // moved bullet management to the player, to make it more easily accessable in other files
     public int numBullets;
@@ -48,12 +49,22 @@ public class PlayerScript : MonoBehaviour
                 // move left
                 Vector3 tempVector = new Vector3(-speed * Time.deltaTime, 0, 0);
                 this.transform.position += tempVector;
+                // flip the sprite
+                if (playerSprite.flipX)
+                {
+                    playerSprite.flipX = false;
+                }
             }
             else if (Input.GetKey("d"))
             {
                 // move right
                 Vector3 tempVector = new Vector3(speed * Time.deltaTime, 0, 0);
                 this.transform.position += tempVector;
+                // flip the sprite
+                if (!playerSprite.flipX)
+                {
+                    playerSprite.flipX = true;
+                }
             }
         }
     }

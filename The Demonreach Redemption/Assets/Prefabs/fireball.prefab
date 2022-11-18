@@ -101,8 +101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 810400f71778c2c439767f0635083421, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   velocity: {x: 0, y: 0}
+  gravity: 0.04
   speed: 10
 --- !u!50 &708682329589629588
 Rigidbody2D:
@@ -119,7 +119,7 @@ Rigidbody2D:
   m_Mass: 20
   m_LinearDrag: 0
   m_AngularDrag: 0
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: b277835d79595d54e82883f27a91c87e, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1

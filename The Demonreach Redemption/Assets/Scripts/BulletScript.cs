@@ -8,6 +8,7 @@ public class BulletScript : MonoBehaviour
     GameObject camera;
     PlayerScript playerScript;
     public Vector2 velocity;
+    public float gravity;
     public int speed;
     float x;
     float y;
@@ -23,12 +24,16 @@ public class BulletScript : MonoBehaviour
     void Update()
     {
         bool inButton = Pause.inButton;
+
+        // apply gravity
+        velocity.y -= gravity;
+
         // moving the bullet
         x = transform.position.x + Time.deltaTime * velocity.x;
         y = transform.position.y + Time.deltaTime * velocity.y;
         transform.position = new Vector3(x, y, 0);
 
-        // rotating the bullet ( this doesnt work rn cuz the unity gravity does not correspond to this script's velocity )
+        // rotating the bullet
         Vector2 unitVec = new Vector2(0, 1);
         transform.rotation = Quaternion.Euler(0, 0, Vector2.SignedAngle(unitVec, velocity));
 
@@ -39,8 +44,6 @@ public class BulletScript : MonoBehaviour
             // cooldown makes sure this click does not simultaniously start another launch
             playerScript.cooldown = true;
             Vector3 newPosition = this.transform.position;
-            //raising height by 1 so the player doesnt spawn inside the platform
-            newPosition.y += 1;
             player.transform.position = newPosition;
             Destroy(gameObject);
         }
@@ -60,8 +63,17 @@ public class BulletScript : MonoBehaviour
         if (collision.gameObject.layer == 3)
         {
             Vector3 newPosition = this.transform.position;
-            //raising height by 1 so the player doesnt spawn inside the platform
-            newPosition.y += 1;
+
+            // check to see if the bullet hit the top or bottom of the platform
+            // this code will eventually need to be updated to account for side collisions
+            if (velocity.y <= 0)
+            {
+                //raising height by 1 so the player doesnt spawn inside the platform
+                newPosition.y += 1;
+            } else
+            {
+                newPosition.y -= 1;
+            }
             player.transform.position = newPosition;
             Destroy(gameObject);
         }
