@@ -44,6 +44,12 @@ public class ProjectileLauncher : MonoBehaviour
         launchDir /= 2;
         Vector2 unitVec = new Vector2(0.0f, 1.0f);
 
+        // max firing range
+        if (launchDir.magnitude > 2)
+        {
+            launchDir = launchDir.normalized * 2;
+        }
+
         // rotating arrow shows the player where the bullets will go when they fire
         Vector3 arrowPos = (launchDir * 2.2f) + player.transform.position;
         arrow.transform.position = new Vector3(arrowPos.x, arrowPos.y, arrow.transform.position.z);
@@ -60,7 +66,8 @@ public class ProjectileLauncher : MonoBehaviour
         if (Input.GetMouseButton(0) && !inButton && !paused && playerScript.cooldown == false && playerScript.numBullets > 0 && (bullets.Count == 0 || bullets[0] == null))
         {
             arrow.SetActive(true);
-        } else
+        }
+        else
         {
             arrow.SetActive(false);
         }

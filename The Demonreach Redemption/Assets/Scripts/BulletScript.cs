@@ -60,23 +60,25 @@ public class BulletScript : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         // for now all ground collisions will allow for teleportation
-        if (collision.gameObject.layer == 3)
-        {
-            Vector3 newPosition = this.transform.position;
+        //if (collision.gameObject.layer == 3)
+        //{
+        Vector3 newPosition = this.transform.position;
 
-            // check to see if the bullet hit the top or bottom of the platform
-            // this code will eventually need to be updated to account for side collisions
-            if (velocity.y <= 0)
-            {
-                //raising height by 1 so the player doesnt spawn inside the platform
-                newPosition.y += 1;
-            } else
-            {
-                newPosition.y -= 1;
-            }
-            player.transform.position = newPosition;
-            Destroy(gameObject);
+        // check to see if the bullet hit the top or bottom of the platform
+        // this code will eventually need to be updated to account for side collisions
+        if (velocity.y <= 0)
+        {
+            //raising height by 1 so the player doesnt spawn inside the platform
+            newPosition.y += 1;
         }
+        else
+        {
+            newPosition.y -= 1;
+        }
+        player.transform.position = newPosition;
+
+        Destroy(gameObject);
+        //}
     }
 
     public void SetVelocity(float xVel, float yVel)

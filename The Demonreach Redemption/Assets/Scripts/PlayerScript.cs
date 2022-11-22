@@ -18,6 +18,9 @@ public class PlayerScript : MonoBehaviour
     public Vector3 spawn;
     GameObject camera;
 
+    public float gravity;
+    public Vector2 velocity;
+
     private Rigidbody2D rigidbody;
 
     // Start is called before the first frame update
@@ -31,6 +34,20 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // apply gravity
+        if (!isGrounded)
+        {
+            if (velocity.y >= -4)
+            {
+                velocity.y -= gravity;
+            }
+            Vector3 fallVector = new Vector3(0, velocity.y * Time.deltaTime, 0);
+            this.transform.position += fallVector;
+        } else
+        {
+            velocity.y = 0;
+        }
+
         if (!isInBounds() && !infiniteFlight)
         {
             // bring the player and camera back to spawn
@@ -41,30 +58,40 @@ public class PlayerScript : MonoBehaviour
             // refill the bullets
             reload();
         }
-        // controls for walking
-        if (isGrounded)
+
+        // reset same as dying for now
+        if (Input.GetKey("r"))
         {
-            if (Input.GetKey("a"))
+            // bring the player and camera back to spawn
+            transform.position = spawn;
+            // temporary vector so the camera stays on the right spot in Z
+            Vector3 tempvec = new Vector3(spawn.x, spawn.y, camera.transform.position.z);
+            camera.transform.position = tempvec;
+            // refill the bullets
+            reload();
+        }
+
+        // controls for walking
+        if (Input.GetKey("a"))
+        {
+            // move left
+            Vector3 tempVector = new Vector3(-speed * Time.deltaTime, 0, 0);
+            this.transform.position += tempVector;
+            // flip the sprite
+            if (playerSprite.flipX)
             {
-                // move left
-                Vector3 tempVector = new Vector3(-speed * Time.deltaTime, 0, 0);
-                this.transform.position += tempVector;
-                // flip the sprite
-                if (playerSprite.flipX)
-                {
-                    playerSprite.flipX = false;
-                }
+                playerSprite.flipX = false;
             }
-            else if (Input.GetKey("d"))
+        }
+        else if (Input.GetKey("d"))
+        {
+            // move right
+            Vector3 tempVector = new Vector3(speed * Time.deltaTime, 0, 0);
+            this.transform.position += tempVector;
+            // flip the sprite
+            if (!playerSprite.flipX)
             {
-                // move right
-                Vector3 tempVector = new Vector3(speed * Time.deltaTime, 0, 0);
-                this.transform.position += tempVector;
-                // flip the sprite
-                if (!playerSprite.flipX)
-                {
-                    playerSprite.flipX = true;
-                }
+                playerSprite.flipX = true;
             }
         }
     }
@@ -80,10 +107,7 @@ public class PlayerScript : MonoBehaviour
     }
     void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == 3)
-        {
-            isGrounded = false;
-        }
+          isGrounded = false;
     }
 
     public bool isInBounds()

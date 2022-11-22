@@ -13,10 +13,5 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //reset button
-        if (Input.GetKeyDown("r"))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
     }
 }

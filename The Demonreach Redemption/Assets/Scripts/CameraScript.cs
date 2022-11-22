@@ -18,7 +18,7 @@ public class CameraScript : MonoBehaviour
         if (motion.magnitude > 0.02)
         {
             motion = motion.normalized;
-            motion /= 100;
+            motion /= 75;
             Vector3 motion3d = new Vector3(motion.x, motion.y, 0);
             this.transform.position += motion3d;
         }
