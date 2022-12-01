@@ -20,6 +20,7 @@ public class PlayerScript : MonoBehaviour
 
     public float gravity;
     public Vector2 velocity;
+    public float maxFallSpeed;
 
     private Rigidbody2D rigidbody;
 
@@ -37,7 +38,7 @@ public class PlayerScript : MonoBehaviour
         // apply gravity
         if (!isGrounded)
         {
-            if (velocity.y >= -4)
+            if (velocity.y >= -maxFallSpeed)
             {
                 velocity.y -= gravity;
             }
