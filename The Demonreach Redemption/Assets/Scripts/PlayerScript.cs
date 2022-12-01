@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
     public bool isGrounded;
-    public bool infiniteFlight;
+    public bool dead = false;
     public SpriteRenderer playerSprite;
 
     // moved bullet management to the player, to make it more easily accessable in other files
@@ -21,6 +21,7 @@ public class PlayerScript : MonoBehaviour
     public float gravity;
     public Vector2 velocity;
     public float maxFallSpeed;
+    public GameObject shoebox;
 
     private Rigidbody2D rigidbody;
 
@@ -49,7 +50,7 @@ public class PlayerScript : MonoBehaviour
             velocity.y = 0;
         }
 
-        if (!isInBounds() && !infiniteFlight)
+        if (dead)
         {
             // bring the player and camera back to spawn
             transform.position = spawn;
@@ -97,25 +98,6 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    //checking when the player is on the ground by setting a variable when the enter or exit a collider on the ground layer
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.layer == 3)
-        {
-            isGrounded = true;
-        }
-        isGrounded = true;
-    }
-    void OnCollisionExit2D(Collision2D collision)
-    {
-          isGrounded = false;
-    }
-
-    public bool isInBounds()
-    {
-        if (Mathf.Abs(camera.transform.position.x - transform.position.x) > 10 || Mathf.Abs(camera.transform.position.y - transform.position.y) > 8) return false;
-        return true;
-    }
     public void reload()
     {
         numBullets = maxBullets;

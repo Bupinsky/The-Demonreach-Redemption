@@ -88,7 +88,7 @@ public class BulletScript : MonoBehaviour
 
     public bool isInBounds()
     {
-        if (Mathf.Abs(camera.transform.position.x - x) > 10 || Mathf.Abs(camera.transform.position.y - y) > 8) return false;
+        if (Mathf.Abs(camera.transform.position.x - x) > 50 || Mathf.Abs(camera.transform.position.y - y) > 40) return false;
         return true;
     }
 
