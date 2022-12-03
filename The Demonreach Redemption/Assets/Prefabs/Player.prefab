@@ -135,6 +135,7 @@ MonoBehaviour:
     type: 3}
   bullets: []
   pauseButton: {fileID: 0}
+  font: {fileID: 12800000, guid: 022359750cf5b3246804e93748940133, type: 3}
 --- !u!1 &1900249328434993434
 GameObject:
   m_ObjectHideFlags: 0

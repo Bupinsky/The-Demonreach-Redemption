@@ -18,7 +18,7 @@ public class PauseScreenButtons : MonoBehaviour
     
     public void retry()
     {
-        SceneManager.LoadScene("Level2");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1;
     }
 

@@ -487,7 +487,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &519420033
 MonoBehaviour:
@@ -501,7 +501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f822fa576ffdb054ba097a420f5b57cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1800511386}
+  player: {fileID: 0}
 --- !u!1001 &586872549
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -517,7 +517,7 @@ PrefabInstance:
     - target: {fileID: 3102101451010377885, guid: b2849ffb3ab59324aa667936c59a9425,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3102101451010377885, guid: b2849ffb3ab59324aa667936c59a9425,
         type: 3}
@@ -1593,12 +1593,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1667012687}
   m_CullTransparentMesh: 1
---- !u!212 &1689316551 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 8039482598582664222, guid: 6ed0ab1ba9d2649409c994072b7cd468,
-    type: 3}
-  m_PrefabInstance: {fileID: 1903574421}
-  m_PrefabAsset: {fileID: 0}
 --- !u!850595691 &1707377402
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -1661,12 +1655,6 @@ LightingSettings:
   m_PVRFilteringAtrousPositionSigmaIndirect: 2
   m_PVRFilteringAtrousPositionSigmaAO: 1
   m_PVRTiledBaking: 0
---- !u!1 &1800511386 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1748668258099674489, guid: 6ed0ab1ba9d2649409c994072b7cd468,
-    type: 3}
-  m_PrefabInstance: {fileID: 1903574421}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1903574421
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1734,6 +1722,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1900249327498621355, guid: 6ed0ab1ba9d2649409c994072b7cd468,
+        type: 3}
+      propertyPath: font
+      value: 
+      objectReference: {fileID: 12800000, guid: 022359750cf5b3246804e93748940133,
+        type: 3}
+    - target: {fileID: 1900249328471051548, guid: 6ed0ab1ba9d2649409c994072b7cd468,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 1900249328471051548, guid: 6ed0ab1ba9d2649409c994072b7cd468,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.22
+      objectReference: {fileID: 0}
     - target: {fileID: 2621735397876287132, guid: 6ed0ab1ba9d2649409c994072b7cd468,
         type: 3}
       propertyPath: speed
@@ -1758,7 +1762,7 @@ PrefabInstance:
         type: 3}
       propertyPath: playerSprite
       value: 
-      objectReference: {fileID: 1689316551}
+      objectReference: {fileID: 0}
     - target: {fileID: 3092460349593259995, guid: 6ed0ab1ba9d2649409c994072b7cd468,
         type: 3}
       propertyPath: numBullets

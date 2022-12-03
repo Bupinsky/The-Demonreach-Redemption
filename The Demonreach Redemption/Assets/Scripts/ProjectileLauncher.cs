@@ -9,6 +9,7 @@ public class ProjectileLauncher : MonoBehaviour
     public GameObject bulletBlueprint;
     public List<GameObject> bullets;
     public GameObject pauseButton;
+    public Font font;
     PlayerScript playerScript;
     Vector3 recentClickLocation;
 
@@ -98,8 +99,9 @@ public class ProjectileLauncher : MonoBehaviour
     {
 
         GUI.color = Color.white;
-        GUI.skin.box.fontSize = 24;
+        GUI.skin.box.fontSize = 17;
         GUI.skin.box.wordWrap = false;
+        GUI.skin.font = font;
 
 
         GUI.Box(new Rect(10, 10, 100, 30), "Shots: " + playerScript.numBullets);
