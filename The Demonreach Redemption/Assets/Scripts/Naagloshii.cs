@@ -26,5 +26,11 @@ public class Naagloshii : MonoBehaviour
         this.velocity.x *= -1;
         this.naagSprite.flipX = !this.naagSprite.flipX;
     }
-
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Naagloshii")
+        {
+            turn();
+        }
+    }
 }

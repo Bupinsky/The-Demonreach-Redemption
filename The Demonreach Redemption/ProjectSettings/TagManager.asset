@@ -8,6 +8,7 @@ TagManager:
   - Fireball
   - Wooden
   - Naagloshii
+  - Flag
   layers:
   - Default
   - TransparentFX
