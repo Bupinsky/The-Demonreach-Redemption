@@ -361,6 +361,7 @@
 "Assets/Scripts/GameManager.cs"
 "Assets/Scripts/GroundDetection.cs"
 "Assets/Scripts/MirrorScript.cs"
+"Assets/Scripts/Naagloshii.cs"
 "Assets/Scripts/Pause.cs"
 "Assets/Scripts/PauseScreenButtons.cs"
 "Assets/Scripts/PlatformScript.cs"
@@ -370,6 +371,7 @@
 "Assets/Scripts/QuitButton.cs"
 "Assets/Scripts/SceneChange.cs"
 "Assets/Scripts/StartButton.cs"
+"Assets/Scripts/WalkCensor.cs"
 -langversion:9.0
 
 /deterministic

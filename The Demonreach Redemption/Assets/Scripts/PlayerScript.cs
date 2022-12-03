@@ -59,6 +59,8 @@ public class PlayerScript : MonoBehaviour
             camera.transform.position = tempvec;
             // refill the bullets
             reload();
+            // not dead anymore
+            dead = false;
         }
 
         // reset same as dying for now
@@ -101,5 +103,13 @@ public class PlayerScript : MonoBehaviour
     public void reload()
     {
         numBullets = maxBullets;
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Naagloshii")
+        {
+            this.dead = true;
+        }
     }
 }
