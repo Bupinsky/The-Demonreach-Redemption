@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Naagloshii.cs" />
     <Compile Include="Assets\Scripts\PauseScreenButtons.cs" />
+    <Compile Include="Assets\Scripts\Flag.cs" />
     <Compile Include="Assets\Scripts\MirrorScript.cs" />
     <Compile Include="Assets\Scripts\PlatformScript.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
@@ -73,7 +74,6 @@
     <Compile Include="Assets\Scripts\ProjectileLauncher.cs" />
     <Compile Include="Assets\Scripts\CheckPoint.cs" />
     <Compile Include="Assets\Scripts\BulletScript.cs" />
-    <Compile Include="Assets\Scripts\Flag.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CameraScript : MonoBehaviour
 {
+    //how far above the player the camera will be
+    public int height;
     public GameObject player;
     // Start is called before the first frame update
     void Start()
@@ -14,7 +16,7 @@ public class CameraScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 motion = new Vector2(player.transform.position.x - this.transform.position.x, player.transform.position.y - this.transform.position.y);
+        Vector2 motion = new Vector2(player.transform.position.x - this.transform.position.x, (player.transform.position.y + height) - this.transform.position.y);
         if (motion.magnitude > 0.02)
         {
             motion = motion.normalized;
