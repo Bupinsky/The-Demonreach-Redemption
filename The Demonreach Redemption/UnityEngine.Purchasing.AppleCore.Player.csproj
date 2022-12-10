@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{80E69AC9-A966-8CEB-8CB7-61DC74054557}</ProjectGuid>
+    <ProjectGuid>{A4FC58E9-A80F-8073-3FB2-8E0595BD8B43}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>UnityEngine.Purchasing.AppleCore</AssemblyName>
@@ -633,11 +633,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Purchasing.Common.Player.csproj">
-      <Project>{98BB33F3-9D20-0BE3-E7E7-8FD1C1AFC80F}</Project>
+      <Project>{68C9DF79-FF3D-41DA-8530-E267CE1D42CA}</Project>
       <Name>Purchasing.Common.Player</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.Player.csproj">
-      <Project>{D6727148-1B52-1059-C8EE-2C1B65301929}</Project>
+      <Project>{A32C333D-26EC-30BB-DD4C-0DE215196231}</Project>
       <Name>UnityEngine.UI.Player</Name>
     </ProjectReference>
   </ItemGroup>

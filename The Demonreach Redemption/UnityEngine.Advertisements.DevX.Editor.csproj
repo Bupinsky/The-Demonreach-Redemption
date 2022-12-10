@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{848B3EFF-D0DC-77B9-A7B4-A1B1235C6218}</ProjectGuid>
+    <ProjectGuid>{25EE4154-9A3F-7C71-8959-337535246EE0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>UnityEngine.Advertisements.DevX.Editor</AssemblyName>
@@ -713,27 +713,27 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.Services.Core.csproj">
-      <Project>{6391DBE4-51A9-D480-4E3B-71E6DAB5FE7C}</Project>
+      <Project>{10FEA8B3-3B91-0E2E-7FD9-E5597C4168AC}</Project>
       <Name>Unity.Services.Core</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Services.Core.Editor.csproj">
-      <Project>{A02F5FCD-9379-BD04-1BBD-3E4A28DF66FC}</Project>
+      <Project>{0360576E-2291-2198-FDA8-0B74C3915812}</Project>
       <Name>Unity.Services.Core.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.UI.csproj">
-      <Project>{1AC94EB1-1B9D-3C63-AEAD-DB04437D40E9}</Project>
+      <Project>{AF545EC1-1428-62E9-259F-D9D3F574B0AB}</Project>
       <Name>UnityEditor.UI</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.csproj">
-      <Project>{2A70325A-3C2D-CB91-BE82-16D5B8742FAF}</Project>
+      <Project>{1CD097E0-96EC-A742-64F0-C82B83BF99E5}</Project>
       <Name>UnityEngine.UI</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.TestRunner.csproj">
-      <Project>{65E51B4A-24A6-BAF4-21DE-0674C3EF0A6B}</Project>
+      <Project>{5F4BD9DF-C55C-E0E5-5AA6-7F3C9F0E7E20}</Project>
       <Name>UnityEngine.TestRunner</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.TestRunner.csproj">
-      <Project>{D8BB77A2-4F40-4928-E163-46277965EC07}</Project>
+      <Project>{FF82D0F9-A6C1-24C0-9ED6-193025F7F31B}</Project>
       <Name>UnityEditor.TestRunner</Name>
     </ProjectReference>
   </ItemGroup>

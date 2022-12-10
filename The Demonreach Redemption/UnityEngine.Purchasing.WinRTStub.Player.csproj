@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{A2272A74-BF73-BEA3-5B17-0CE5AC380063}</ProjectGuid>
+    <ProjectGuid>{77D877CF-2683-2E25-B751-FDC337166C77}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>UnityEngine.Purchasing.WinRTStub</AssemblyName>
@@ -633,11 +633,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="UnityEngine.Purchasing.WinRTCore.Player.csproj">
-      <Project>{0A5B41D0-1CA8-E7F2-5A6F-0A98FF3AAFF6}</Project>
+      <Project>{668217CC-8608-A188-89F8-91CFF90F11F4}</Project>
       <Name>UnityEngine.Purchasing.WinRTCore.Player</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.Player.csproj">
-      <Project>{D6727148-1B52-1059-C8EE-2C1B65301929}</Project>
+      <Project>{A32C333D-26EC-30BB-DD4C-0DE215196231}</Project>
       <Name>UnityEngine.UI.Player</Name>
     </ProjectReference>
   </ItemGroup>
