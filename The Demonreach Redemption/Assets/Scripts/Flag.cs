@@ -22,6 +22,7 @@ public class Flag : MonoBehaviour
         // if player touches flag, progress to next level
         if (collision.gameObject.tag == "Player")
         {
+            Debug.Log("next level");
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }

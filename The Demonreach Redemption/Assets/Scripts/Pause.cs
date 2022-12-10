@@ -21,9 +21,14 @@ public class Pause : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        
+        if(Time.timeScale == 1)
+        {
+            paused = false;
+            pauseScreen.SetActive(false);
+            buttonText.text = "Pause";
+        }
     }
 
     public void click()
@@ -32,7 +37,6 @@ public class Pause : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         {
             Time.timeScale = 1;
             paused = false;
-            pauseScreen.SetActive(false);
             buttonText.text = "Pause";
 
 

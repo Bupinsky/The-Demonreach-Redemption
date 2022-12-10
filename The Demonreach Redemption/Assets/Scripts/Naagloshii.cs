@@ -18,7 +18,7 @@ public class Naagloshii : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.position += velocity;
+        this.transform.position += velocity * Time.timeScale;
     }
 
     public void turn()

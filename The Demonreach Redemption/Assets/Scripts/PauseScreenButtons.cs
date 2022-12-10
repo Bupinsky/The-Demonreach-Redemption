@@ -4,10 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class PauseScreenButtons : MonoBehaviour
 {
+    private PlayerScript playerScript;
     // Start is called before the first frame update
-    void Start()
-    {
-        
+    void Start() {
+        GameObject player = GameObject.FindWithTag("Player");
+        playerScript = player.GetComponent<PlayerScript>();
     }
 
     // Update is called once per frame
@@ -18,8 +19,9 @@ public class PauseScreenButtons : MonoBehaviour
     
     public void retry()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        playerScript.dead = true;
         Time.timeScale = 1;
+        this.gameObject.SetActive(false);
     }
 
     public void mainMenu()

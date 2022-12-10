@@ -45,6 +45,7 @@ public class BulletScript : MonoBehaviour
             playerScript.cooldown = true;
             Vector3 newPosition = this.transform.position;
             player.transform.position = newPosition;
+            player.GetComponent<AudioSource>().Play();
             Destroy(gameObject);
         }
 
