@@ -32,7 +32,11 @@ public class ProjectileLauncher : MonoBehaviour
             Vector3 _mousePos = Input.mousePosition;
             _mousePos.z = Camera.main.nearClipPlane;
             recentClickLocation = Camera.main.ScreenToWorldPoint(_mousePos);
+            playerScript.playerAnimator.SetBool("IsThrowing", true);
         }
+
+        if(Input.GetMouseButtonUp(0) && !inButton && !paused)
+            playerScript.playerAnimator.SetBool("IsThrowing", false);
 
         // convert mouse position to the relative world position of the mouse
         Vector3 mousePos = Input.mousePosition;

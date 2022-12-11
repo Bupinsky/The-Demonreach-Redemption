@@ -652,8 +652,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1573198291
-  m_SortingLayer: -1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: aee80397a656137499f8251facd6b131, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1088,6 +1088,11 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1900249328471051551, guid: 6ed0ab1ba9d2649409c994072b7cd468,
+        type: 3}
+      propertyPath: playerAnimator
+      value: 
+      objectReference: {fileID: 1903574423}
     - target: {fileID: 2621735397876287132, guid: 6ed0ab1ba9d2649409c994072b7cd468,
         type: 3}
       propertyPath: speed
@@ -1154,6 +1159,12 @@ PrefabInstance:
 --- !u!1 &1903574422 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1900249328471051558, guid: 6ed0ab1ba9d2649409c994072b7cd468,
+    type: 3}
+  m_PrefabInstance: {fileID: 1903574421}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1903574423 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4947303915157276334, guid: 6ed0ab1ba9d2649409c994072b7cd468,
     type: 3}
   m_PrefabInstance: {fileID: 1903574421}
   m_PrefabAsset: {fileID: 0}

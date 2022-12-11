@@ -12,6 +12,7 @@ public class Pause : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public GameObject pauseScreen;
     public Sprite resume;
     public Sprite pause;
+
     // Start is called before the first frame update
     void Start()
     {

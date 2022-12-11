@@ -7,6 +7,7 @@ public class PlayerScript : MonoBehaviour
     public bool isGrounded;
     public bool dead = false;
     public SpriteRenderer playerSprite;
+    public Animator playerAnimator;
 
     // moved bullet management to the player, to make it more easily accessable in other files
     public int numBullets;
@@ -81,6 +82,7 @@ public class PlayerScript : MonoBehaviour
             // move left
             Vector3 tempVector = new Vector3(-speed * Time.deltaTime, 0, 0);
             this.transform.position += tempVector;
+            playerAnimator.SetBool("IsWalking", true);
             // flip the sprite
             if (playerSprite.flipX)
             {
@@ -91,6 +93,7 @@ public class PlayerScript : MonoBehaviour
         {
             // move right
             Vector3 tempVector = new Vector3(speed * Time.deltaTime, 0, 0);
+            playerAnimator.SetBool("IsWalking", true);
             this.transform.position += tempVector;
             // flip the sprite
             if (!playerSprite.flipX)
@@ -98,6 +101,10 @@ public class PlayerScript : MonoBehaviour
                 playerSprite.flipX = true;
             }
         }
+
+        //getKeyUp for animation control
+        if (Input.GetKeyUp("a") || Input.GetKeyUp("d"))
+            playerAnimator.SetBool("IsWalking", false);
     }
 
     public void reload()
