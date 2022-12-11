@@ -64,7 +64,7 @@ public class ProjectileLauncher : MonoBehaviour
         Vector3 launchNorm = launchDir.normalized;
 
         // hide the arrow if the player is not aiming
-        if (Input.GetMouseButton(0) && !inButton && !paused && playerScript.cooldown == false && playerScript.numBullets > 0 && (bullets.Count == 0 || bullets[0] == null))
+        if (Input.GetMouseButton(0) && !inButton && !paused && Time.timeScale != 0 && playerScript.cooldown == false && playerScript.numBullets > 0 && (bullets.Count == 0 || bullets[0] == null))
         {
             arrow.SetActive(true);
         }
@@ -74,7 +74,7 @@ public class ProjectileLauncher : MonoBehaviour
         }
 
         //controls
-        if (Input.GetMouseButtonUp(0) && playerScript.cooldown == false && !inButton && !paused)
+        if (Input.GetMouseButtonUp(0) && playerScript.cooldown == false && !inButton && !paused && Time.timeScale != 0)
         {
             // only shoot if the player has bullets & there are no bullets in play
             if (playerScript.numBullets > 0 && (bullets.Count == 0 || bullets[0] == null))

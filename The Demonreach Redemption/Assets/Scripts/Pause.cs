@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using TMPro;
 
 public class Pause : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
@@ -9,15 +10,13 @@ public class Pause : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public static bool inButton;
     public static bool paused;
     public GameObject pauseScreen;
-    public GameObject buttonTextObject;
-    TMP_Text buttonText;
+    public Sprite resume;
+    public Sprite pause;
     // Start is called before the first frame update
     void Start()
     {
         inButton = false;
         paused = false;
-        buttonText = buttonTextObject.GetComponent<TMP_Text>();
-
     }
 
     // Update is called once per frame
@@ -27,7 +26,7 @@ public class Pause : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         {
             paused = false;
             pauseScreen.SetActive(false);
-            buttonText.text = "Pause";
+            this.gameObject.GetComponent<Image>().sprite = pause;
         }
     }
 
@@ -37,7 +36,8 @@ public class Pause : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         {
             Time.timeScale = 1;
             paused = false;
-            buttonText.text = "Pause";
+            this.gameObject.GetComponent<Image>().sprite = pause;
+            pauseScreen.SetActive(false);
 
 
         }
@@ -46,7 +46,7 @@ public class Pause : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             Time.timeScale = 0;
             paused = true;
             pauseScreen.SetActive(true);
-            buttonText.text = "Resume";
+            this.gameObject.GetComponent<Image>().sprite = resume;
         }
     }
     public void OnPointerEnter(PointerEventData eventData)
