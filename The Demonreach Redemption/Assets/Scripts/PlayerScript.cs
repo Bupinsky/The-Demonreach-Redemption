@@ -51,8 +51,18 @@ public class PlayerScript : MonoBehaviour
             velocity.y = 0;
         }
 
+        // reset same as dying for now
+        if (Input.GetKey("r"))
+        {
+            dead = true;
+        }
+
         if (dead)
         {
+            // destroy active bullet
+            GameObject bullet = GameObject.FindGameObjectWithTag("Fireball");
+            if (bullet != null) Destroy(bullet);
+
             // bring the player and camera back to spawn
             transform.position = spawn;
             // temporary vector so the camera stays on the right spot in Z
@@ -64,17 +74,6 @@ public class PlayerScript : MonoBehaviour
             dead = false;
         }
 
-        // reset same as dying for now
-        if (Input.GetKey("r"))
-        {
-            // bring the player and camera back to spawn
-            transform.position = spawn;
-            // temporary vector so the camera stays on the right spot in Z
-            Vector3 tempvec = new Vector3(spawn.x, spawn.y, camera.transform.position.z);
-            camera.transform.position = tempvec;
-            // refill the bullets
-            reload();
-        }
 
         // controls for walking
         if (Input.GetKey("a"))

@@ -37,7 +37,6 @@ public class BulletScript : MonoBehaviour
         Vector2 unitVec = new Vector2(0, 1);
         transform.rotation = Quaternion.Euler(0, 0, Vector2.SignedAngle(unitVec, velocity));
 
-
         // double click for teleportation
         if (Input.GetMouseButtonDown(0) && !inButton)
         {
