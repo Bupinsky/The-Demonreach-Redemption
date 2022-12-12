@@ -76,6 +76,7 @@ public class BulletScript : MonoBehaviour
             newPosition.y -= 1;
         }
         player.transform.position = newPosition;
+        player.GetComponent<AudioSource>().Play();
 
         Destroy(gameObject);
         //}
