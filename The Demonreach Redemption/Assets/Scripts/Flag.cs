@@ -23,7 +23,15 @@ public class Flag : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Debug.Log("next level");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            int buildIndex = SceneManager.GetActiveScene().buildIndex;
+            if (buildIndex != 9)
+            {
+                SceneManager.LoadScene(buildIndex + 1);
+            }
+            else
+            {
+                SceneManager.LoadScene(0);
+            }
         }
     }
 }
