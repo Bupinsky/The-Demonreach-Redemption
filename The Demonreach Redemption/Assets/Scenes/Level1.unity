@@ -581,10 +581,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'A and D to move left and right
 
-    Click and drag to throw the skull
+
+    R to restart from the last checkpoint
+
 
     Click
-    again while it''s in the air to teleport
+    and drag to throw the skull
+
+
+    Click again while it''s in the air to teleport
 
 '
   m_isRightToLeft: 0
@@ -1423,12 +1428,12 @@ PrefabInstance:
     - target: {fileID: 2831178605176993469, guid: e2c99c590625de84da7d6e7cf5a53b7a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 413
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2831178605176993469, guid: e2c99c590625de84da7d6e7cf5a53b7a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 265.24356
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2831178605176993469, guid: e2c99c590625de84da7d6e7cf5a53b7a,
         type: 3}
