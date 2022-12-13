@@ -300,7 +300,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   naagSprite: {fileID: 8389809439022038182}
   velocity: {x: 0, y: 0, z: 0}
-  speed: 0.008
+  speed: 3
 --- !u!61 &8389809439511013477
 BoxCollider2D:
   m_ObjectHideFlags: 0

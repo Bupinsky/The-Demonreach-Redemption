@@ -117,5 +117,9 @@ public class PlayerScript : MonoBehaviour
         {
             this.dead = true;
         }
+        if (collision.gameObject.tag == "DeathBox")
+        {
+            this.dead = true;
+        }
     }
 }

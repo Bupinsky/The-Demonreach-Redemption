@@ -6,16 +6,20 @@ public class BulletScript : MonoBehaviour
 {
     GameObject player;
     GameObject camera;
+    GameObject projectileLauncher;
     PlayerScript playerScript;
     public Vector2 velocity;
     public float gravity;
     public int speed;
     float x;
     float y;
+    // for when the bullet collides with the deathbox
+    private bool dead = false;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindWithTag("Player");
+        projectileLauncher = GameObject.FindWithTag("Launcher");
         camera = GameObject.FindWithTag("MainCamera");
         playerScript = player.GetComponent<PlayerScript>();
     }
@@ -50,8 +54,9 @@ public class BulletScript : MonoBehaviour
 
 
         // destroy out of bounds bullets
-        if (!isInBounds())
+        if (!isInBounds() || dead)
         {
+            projectileLauncher.GetComponent<AudioSource>().Play();
             Destroy(gameObject);
             //Debug.Log("bullet destroyed");
         }
@@ -59,27 +64,32 @@ public class BulletScript : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // for now all ground collisions will allow for teleportation
-        //if (collision.gameObject.layer == 3)
-        //{
-        Vector3 newPosition = this.transform.position;
-
-        // check to see if the bullet hit the top or bottom of the platform
-        // this code will eventually need to be updated to account for side collisions
-        if (velocity.y <= 0)
+        // for now all collisions except death box will allow for teleportation
+        if (collision.gameObject.tag != "DeathBox")
         {
-            //raising height by 1 so the player doesnt spawn inside the platform
-            newPosition.y += 1;
+            Vector3 newPosition = this.transform.position;
+
+            // check to see if the bullet hit the top or bottom of the platform
+            // this code will eventually need to be updated to account for side collisions
+            if (velocity.y <= 0)
+            {
+                //raising height by 1 so the player doesnt spawn inside the platform
+                newPosition.y += 1;
+            }
+            else
+            {
+                newPosition.y -= 1;
+            }
+            player.transform.position = newPosition;
+            player.GetComponent<AudioSource>().Play();
+
+            Destroy(gameObject);
         }
         else
         {
-            newPosition.y -= 1;
+            // kill the bullet if it touches the deathbox
+            dead = true;
         }
-        player.transform.position = newPosition;
-        player.GetComponent<AudioSource>().Play();
-
-        Destroy(gameObject);
-        //}
     }
 
     public void SetVelocity(float xVel, float yVel)
