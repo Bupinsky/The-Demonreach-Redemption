@@ -480,9 +480,9 @@ RectTransform:
   m_Father: {fileID: 1264566385}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 110.100006, y: -83}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -5.600006, y: -77.6}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &624064158
@@ -508,16 +508,7 @@ MonoBehaviour:
   m_text: 'A and D to move left and right
 
 
-    R to restart from the last checkpoint
-
-
-    Click
-    and drag to throw the skull
-
-
-    Click again while it''s in the air to teleport
-
-'
+    R to restart from the last checkpoint'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 866925f790c8e4c4fa77e8e8ff8a19bd, type: 2}
   m_sharedMaterial: {fileID: -4719091523755687829, guid: 866925f790c8e4c4fa77e8e8ff8a19bd,
