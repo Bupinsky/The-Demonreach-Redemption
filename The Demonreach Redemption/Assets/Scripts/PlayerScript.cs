@@ -42,7 +42,7 @@ public class PlayerScript : MonoBehaviour
         {
             if (velocity.y >= -maxFallSpeed)
             {
-                velocity.y -= gravity;
+                velocity.y -= gravity * Time.deltaTime;
             }
             Vector3 fallVector = new Vector3(0, velocity.y * Time.deltaTime, 0);
             this.transform.position += fallVector;
