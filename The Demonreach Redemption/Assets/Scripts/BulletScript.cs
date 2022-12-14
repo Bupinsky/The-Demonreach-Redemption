@@ -30,7 +30,7 @@ public class BulletScript : MonoBehaviour
         bool inButton = Pause.inButton;
 
         // apply gravity
-        velocity.y -= gravity;
+        velocity.y -= gravity * Time.deltaTime * 1000;
 
         // moving the bullet
         x = transform.position.x + Time.deltaTime * velocity.x;

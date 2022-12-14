@@ -19,9 +19,11 @@ public class PauseScreenButtons : MonoBehaviour
     
     public void retry()
     {
-        playerScript.dead = true;
         Time.timeScale = 1;
         this.gameObject.SetActive(false);
+        // reload the scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
     }
 
     public void mainMenu()

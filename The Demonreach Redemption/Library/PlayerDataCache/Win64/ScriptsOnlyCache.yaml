@@ -34,8 +34,6 @@ ScriptsOnlyBuild:
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
     - TMPro.TextMeshProUGUI
-    Unity.Timeline.Editor.dll:
-    - TimelineProjectSettings
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
@@ -1743,4 +1741,5 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Level7.unity
   - Assets/Scenes/Level8.unity
   - Assets/Scenes/Level9.unity
-  playerPath: C:/Users/theda/Downloads/New folder/The Demonreach Redemption.exe
+  playerPath: C:/Users/Tommy/OneDrive/Desktop/The Demonreach Redemption/The Demonreach
+    Redemption.exe

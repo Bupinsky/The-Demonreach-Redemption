@@ -17,12 +17,18 @@ public class CameraScript : MonoBehaviour
     void Update()
     {
         Vector2 motion = new Vector2(player.transform.position.x - this.transform.position.x, (player.transform.position.y + height) - this.transform.position.y);
-        if (motion.magnitude > 0.02)
+        if (motion.magnitude > 0.1)
         {
+            // if the camera is far enough from the center, move it closer
             motion = motion.normalized;
             motion *= 10;
             Vector3 motion3d = new Vector3(motion.x, motion.y, 0);
             this.transform.position += motion3d * Time.deltaTime;
+        } else
+        {
+            // center the camera if the camera is already almost centered
+            Vector3 motion3d = new Vector3(motion.x, motion.y, 0);
+            this.transform.position += motion3d;
         }
     }
 }
